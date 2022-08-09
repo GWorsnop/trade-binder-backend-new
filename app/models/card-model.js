@@ -8,7 +8,7 @@ exports.selectCards = () => {
   `
     )
     .then((result) => {
-      return { message: "hello" };
+      return result.rows;
     });
 };
 
