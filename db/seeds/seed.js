@@ -35,11 +35,26 @@ const seed = async (data) => {
     ])
   );
 
+  const insertCardsQueryStr = format(
+    "INSERT INTO cards ( name, price, quantity, image, username) VALUES %L RETURNING *;",
+    cardData.map(({ name, price, quantity, image, username }) => [
+      name,
+      price,
+      quantity,
+      image,
+      username,
+    ])
+  );
+
   const usersPromise = db
     .query(insertUsersQueryStr)
     .then((result) => result.rows);
 
-  await Promise.all([usersPromise]);
+  const cardsPromise = db
+    .query(insertCardsQueryStr)
+    .then((result) => result.rows);
+
+  await Promise.all([usersPromise, cardsPromise]);
 };
 
 module.exports = seed;
