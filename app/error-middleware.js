@@ -16,6 +16,7 @@ exports.customError = (err, req, res, next) => {
 
 exports.psqlError = (err, req, res, next) => {
   if (err.code === "22P02") {
+    console.log("error found here");
     res.status(422).send({ message: "Unprocessable Entity" });
   } else if (err.code === "23503") {
     res.status(400).send({ message: "Bad Request" });
