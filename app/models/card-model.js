@@ -1,21 +1,19 @@
 const connection = require("../../db/connection");
 
-exports.selectCards = (username) => {
+exports.selectCards = () => {
   return connection
     .query(
       `
   SELECT * FROM cards
-  WHERE username = $1
-  `,
-      [username]
+  `
     )
     .then((result) => {
-      return result.rows;
+      return { message: "hello" };
     });
 };
 
 exports.insertCard = (newCard) => {
-  const { name, price, quantity, username } = newCard;
+  const { name, price, quantity, image, username } = newCard;
   if (name && price && quantity && image && username) {
     return connection
       .query(

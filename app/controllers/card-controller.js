@@ -1,8 +1,8 @@
 const { selectCards, insertCard } = require("../models/card-model");
 
 exports.getCards = (req, res) => {
-  const { username } = req.params;
-  selectCards(username).then((cards) => {
+  selectCards().then((cards) => {
+    console.log(cards);
     res.status(200).send({ cards });
   });
 };
