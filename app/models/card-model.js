@@ -39,7 +39,6 @@ exports.getUserByName = (req, res, next) => {
 
 exports.insertCard = (newCard) => {
   const { name, price, quantity, image, username } = newCard;
-  console.log(newCard);
   if (name && price && quantity && image && username) {
     return connection
       .query(
