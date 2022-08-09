@@ -16,13 +16,13 @@ exports.selectCards = (username) => {
 
 exports.insertCard = (newCard) => {
   const { name, price, quantity, username } = newCard;
-  if (name && price && quantity && username) {
+  if (name && price && quantity && image && username) {
     return connection
       .query(
-        `INSERT INTO categories
-            (name, price, quantity, username)
+        `INSERT INTO cards
+            (name, price, quantity, image, username)
             VALUES
-            ($1, $2, $3, $4)
+            ($1, $2, $3, $4, $5)
             RETURNING *`,
         [name, price, quantity, username]
       )
