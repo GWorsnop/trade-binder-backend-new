@@ -12,6 +12,31 @@ exports.selectCards = () => {
     });
 };
 
+exports.selectCardsByUser = (user) => {
+  return connection
+    .query(
+      `
+    SELECT * FROM cards
+    WHERE username = $1
+    `,
+      [user]
+    )
+    .then((result) => {
+      return result.rows;
+    });
+};
+
+exports.getUserByName = (req, res, next) => {
+  const { username } = req.params;
+  selectUserByName(username)
+    .then((user) => {
+      res.status(200).send({ user });
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
 exports.insertCard = (newCard) => {
   const { name, price, quantity, image, username } = newCard;
   if (name && price && quantity && image && username) {
