@@ -47,7 +47,7 @@ exports.insertCard = (newCard) => {
             VALUES
             ($1, $2, $3, $4, $5)
             RETURNING *`,
-        [name, price, quantity, username]
+        [name, price, quantity, image, username]
       )
       .then((result) => {
         return result.rows[0];
