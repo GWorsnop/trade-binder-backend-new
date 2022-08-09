@@ -8,6 +8,6 @@ const { methodNotAllowed } = require("../error-middleware");
 
 cardRouter.route("/").get(getCards).post(postCard).all(methodNotAllowed);
 
-reviewsRouter.route("/:user").get(getCardsByUser);
+cardRouter.route("/:user").get(getCardsByUser);
 
 module.exports = { cardRouter };
