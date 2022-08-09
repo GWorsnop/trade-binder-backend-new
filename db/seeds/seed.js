@@ -3,8 +3,8 @@ const format = require("pg-format");
 
 const seed = async (data) => {
   const { cardData, userData } = data;
-  await db.query(`DROP TABLE IF EXISTS users;`);
   await db.query(`DROP TABLE IF EXISTS cards;`);
+  await db.query(`DROP TABLE IF EXISTS users;`);
 
   const usersTablePromise = db.query(`
   CREATE TABLE users (
