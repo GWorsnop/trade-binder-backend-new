@@ -20,7 +20,7 @@ const seed = async (data) => {
   CREATE TABLE cards (
     card_id SERIAL PRIMARY KEY,
     name VARCHAR NOT NULL,
-	price NUMERIC NOT NULL,
+	price FLOAT NOT NULL,
 	quantity INT NOT NULL,
   image VARCHAR(500) NOT NULL,
 	username VARCHAR REFERENCES users(username)
