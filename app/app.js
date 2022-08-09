@@ -1,12 +1,12 @@
 const express = require("express");
 const apiRouter = require("./routers/api-router");
 const app = express();
-// const {
-//   notFound,
-//   customError,
-//   psqlError,
-//   genericError,
-// } = require("./error-middleware");
+const {
+  notFound,
+  customError,
+  psqlError,
+  genericError,
+} = require("./error-middleware");
 
 app.use(express.json());
 
