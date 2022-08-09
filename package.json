@@ -1,0 +1,29 @@
+{
+  "name": "trade-binder-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "setup-dbs": "psql -f ./db/setup.sql",
+    "seed": "node ./db/seeds/run-seed.js",
+    "test": "jest",
+    "start": "node listen.js",
+    "log": "hello"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GWorsnop/trade-binder-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GWorsnop/trade-binder-backend/issues"
+  },
+  "homepage": "https://github.com/GWorsnop/trade-binder-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "pg": "^8.7.3",
+    "pg-format": "^1.0.4"
+  }
+}
