@@ -7,6 +7,9 @@ const {
   psqlError,
   genericError,
 } = require("./error-middleware");
+const cors = require("cors");
+
+app.use(cors());
 
 app.use(express.json());
 
