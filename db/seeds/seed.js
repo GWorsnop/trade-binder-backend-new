@@ -22,7 +22,7 @@ const seed = async (data) => {
     name VARCHAR NOT NULL,
 	price NUMERIC NOT NULL,
 	quantity INT NOT NULL,
-  image VARCHAR NOT NULL,
+  image VARCHAR(500) NOT NULL,
 	username VARCHAR REFERENCES users(username)
   );`);
 
