@@ -37,19 +37,11 @@ exports.postCard = (req, res, next) => {
 exports.patchCardQuantity = (req, res, next) => {
   const { inc_quantity } = req.body;
   const { card_id } = req.params;
-  if (inc_quantity === undefined) {
-    selectReviewById(card_id).then((selectedCard) => {
-      res.status(400).send({
-        card: selectedCard,
-        errorMessage: "Bad Request - Please provide inc_quantity in request",
-      });
+  updateCardQuantity(inc_quantity, card_id)
+    .then((card) => {
+      res.status(200).send({ card });
+    })
+    .catch((err) => {
+      next(err);
     });
-  } else
-    updateCardQuantity(inc_quantity, card_id)
-      .then((card) => {
-        res.status(200).send({ card });
-      })
-      .catch((err) => {
-        next(err);
-      });
 };
