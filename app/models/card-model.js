@@ -56,7 +56,7 @@ exports.updateCardQuantity = (inc_quantity, card_id) => {
       SET quantity = quantity + $1 
       WHERE card_id = $2 
       RETURNING *`,
-      { inc_quantity, card_id }
+      [inc_quantity, card_id]
     )
     .then((result) => {
       if (result.rows.length > 0) {
