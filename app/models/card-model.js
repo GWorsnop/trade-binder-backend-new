@@ -51,11 +51,8 @@ exports.insertCard = (newCard) => {
 
 exports.updateCardQuantity = (inc_quantity, card_id) => {
   return connection
-    .patch(
-      `UPDATE cards 
-      SET quantity = quantity + $1 
-      WHERE card_id = $2 
-      RETURNING *`,
+    .query(
+      "UPDATE cards SET quantity = quantity + $1 WHERE card_id = $2 RETURNING *",
       [inc_quantity, card_id]
     )
     .then((result) => {
