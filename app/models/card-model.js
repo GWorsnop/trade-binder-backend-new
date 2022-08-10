@@ -62,6 +62,7 @@ exports.updateCardQuantity = (inc_quantity, card_id) => {
         return Promise.reject({
           status: 404,
           errorMessage: "Not Found - card_id does not exist",
+          data: result,
         });
       }
     });
