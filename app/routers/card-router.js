@@ -4,6 +4,7 @@ const {
   postCard,
   getCardsByUser,
   patchCardQuantity,
+  removeCard,
 } = require("../controllers/card-controller");
 const { methodNotAllowed } = require("../error-middleware");
 const { removeCard } = require("../models/card-model");
