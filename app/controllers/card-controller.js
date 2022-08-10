@@ -35,8 +35,7 @@ exports.postCard = (req, res, next) => {
 };
 
 exports.patchCardQuantity = (req, res, next) => {
-  const { inc_quantity } = req.body;
-  const { card_id } = req.params;
+  const { inc_quantity, card_id } = req.body;
   updateCardQuantity(inc_quantity, card_id)
     .then((card) => {
       res.status(200).send({ card });
