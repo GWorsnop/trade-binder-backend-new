@@ -3,6 +3,7 @@ const {
   insertCard,
   selectCardsByUser,
   updateCardQuantity,
+  removeCard,
 } = require("../models/card-model");
 
 exports.getCards = (req, res) => {
@@ -39,6 +40,17 @@ exports.patchCardQuantity = (req, res, next) => {
   updateCardQuantity(inc_quantity, card_id)
     .then((card) => {
       res.status(200).send({ card });
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
+exports.deleteCard = (req, res, next) => {
+  const { card_id } = req.params;
+  removeCard(card_id)
+    .then(() => {
+      res.status(204).send();
     })
     .catch((err) => {
       next(err);

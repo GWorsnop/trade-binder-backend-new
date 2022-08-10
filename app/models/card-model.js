@@ -66,3 +66,13 @@ exports.updateCardQuantity = (inc_quantity, card_id) => {
       }
     });
 };
+
+exports.removeCard = (card_id) => {
+  return connection.query(
+    `
+            DELETE FROM cards 
+            WHERE card_id = $1
+            `,
+    [card_id]
+  );
+};
