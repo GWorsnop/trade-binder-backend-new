@@ -17,7 +17,7 @@ exports.selectCardsByUser = (user) => {
     .query(
       `
     SELECT * FROM cards
-    WHERE username = $1
+    WHERE card_id = $1
     `,
       [user]
     )
@@ -56,6 +56,6 @@ exports.updateCardQuantity = (inc_quantity, card_id) => {
       [inc_quantity, card_id]
     )
     .then((result) => {
-      return result;
+      return result.rows;
     });
 };
