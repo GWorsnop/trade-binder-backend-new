@@ -47,8 +47,8 @@ exports.patchCardQuantity = (req, res, next) => {
 };
 
 exports.deleteCard = (req, res, next) => {
-  const card_id = req.body;
-  removeCard(card_id)
+  const card = req.body;
+  removeCard(card)
     .then(() => {
       res.status(204).send();
     })
