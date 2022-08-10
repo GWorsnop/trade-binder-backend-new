@@ -77,6 +77,6 @@ exports.removeCard = (card_id) => {
       [card_id]
     )
     .then((result) => {
-      return result;
+      return result.rows;
     });
 };
